@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.raabe'
+version = '1.0.0'
+description = 'Padding implementation of ZeroMQ\'s ASCII85 encoding.'
+archivesBaseName = 'libz85'
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    flatDir {
+        dirs 'lib'
+    }
+    mavenLocal()
+    maven { url = uri('https://repo.maven.apache.org/maven2/') }
+}
+
+dependencies {
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.+',
+        'org.mockito:mockito-core:4.4.+'
+    )
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.+')
+}
+
+test {
+    useJUnitPlatform()
+}
